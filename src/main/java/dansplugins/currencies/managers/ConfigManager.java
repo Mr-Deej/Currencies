@@ -65,6 +65,15 @@ public class ConfigManager {
         if (!getConfig().isSet("disallowAnvilUsage")) {
             getConfig().set("disallowAnvilUsage", true);
         }
+        if (!getConfig().isSet("dropOnMobKill")) {
+            getConfig().set("dropOnMobKill", false);
+        }
+        if (!getConfig().isSet("dropOnPlayerKill")) {
+            getConfig().set("dropOnPlayerKill", true);
+        }
+        if (!getConfig().isSet("dropAmount")) {
+            getConfig().set("dropAmount", 2);
+        }
         if (!getConfig().isSet("itemCost")) {
             getConfig().set("itemCost", true);
         }
@@ -89,6 +98,9 @@ public class ConfigManager {
                     || option.equalsIgnoreCase("disallowPlacement")
                     || option.equalsIgnoreCase("showAmountMinted")
                     || option.equalsIgnoreCase("disallowAnvilUsage")
+                    || option.equalsIgnoreCase("dropOnMobKill")
+                    || option.equalsIgnoreCase("dropOnPlayerKill")
+                    || option.equalsIgnoreCase("dropAmount")
                     || option.equalsIgnoreCase("itemCost")) {
                 getConfig().set(option, Boolean.parseBoolean(value));
                 sender.sendMessage(ChatColor.GREEN + "Boolean set.");
@@ -119,6 +131,9 @@ public class ConfigManager {
                 + ", disallowPlacement: " + getBoolean("disallowPlacement")
                 + ", showAmountMinted: " + getBoolean("showAmountMinted")
                 + ", disallowAnvilUsage: " + getBoolean("disallowAnvilUsage")
+                + ", dropOnMobKill: " + getBoolean("dropOnMobKill")
+                + ", dropOnPlayerKill: " + getBoolean("dropOnPlayerKill")
+                + ", dropAmount: " + getInt("dropAmount")
                 + ", itemCost: " + getBoolean("itemCost"));
     }
 
